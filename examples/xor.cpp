@@ -1,7 +1,7 @@
 #include <iostream>
 #include <random>
 
-#include "mlp.h"
+#include "../mlp.h"
 
 int main() {
   constexpr size_t DATA_SIZE = 4;
@@ -22,14 +22,15 @@ int main() {
     0
   };
 
+  // Add 2 extra neurons because it may get stuck in a local minima
   using Model = MLP<LossFn::MSE, INPUT_SIZE, 4, OUTPUT_SIZE>;
   f32 model_memory[Model::MEMORY_SIZE];
 
   std::random_device dev;
   Model model(dev(), model_memory);
 
-  for (size_t i = 0; i < 10000; ++i) {
-    model.Learn(DATA_SIZE, input, output, 1.0, 0.0);
+  for (size_t i = 0; i < 1000000; ++i) {
+    model.FitBatch(DATA_SIZE, input, output, 1.0, 0.9);
 
     if ((i + 1) % 100 == 0) {
       std::cout << (i + 1) / 100 << ' ';

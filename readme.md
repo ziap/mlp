@@ -19,6 +19,7 @@ Progress:
 - [ ] Metrics for model evaluation
 - [ ] Output layer softmax activation
 - [ ] Categorical cross-entropy loss function
+- [ ] Better weight initialization
 - [ ] [Adam][3] optimizer
 
 ## Usage
@@ -29,8 +30,7 @@ Look at the examples and the source code if you want to learn more.
 
 ### Building the examples
 
-You will need a C++ compiler that supports C++20. (C++20 is only needed for
-designated initializers, otherwise it will work perfectly fine with C++11)
+You will need a C++ compiler that supports C++11.
 
 ```bash
 ./build.sh

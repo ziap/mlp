@@ -1,7 +1,7 @@
 #include <iostream>
 #include <random>
 
-#include "mlp.h"
+#include "../mlp.h"
 
 int main(void) {
   constexpr size_t BITS = 7;
@@ -29,7 +29,7 @@ int main(void) {
   Model model(dev(), model_memory);
 
   for (size_t i = 0; i < 100000; ++i) {
-    model.Learn(DATA_SIZE, input, output, 1.0, 0.0);
+    model.FitBatch(DATA_SIZE, input, output, 1.0f, 0.0f);
 
     if ((i + 1) % 1000 == 0) {
       std::cout << (i + 1) / 1000 << ' ';
