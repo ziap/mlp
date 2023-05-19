@@ -1,4 +1,4 @@
-#!/usr/bin/sh -xe
+#!/bin/sh -xe
 
 CXX="${CXX:-clang++}"
 

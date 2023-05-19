@@ -23,7 +23,7 @@ int main() {
   };
 
   // Add 2 extra neurons because it may get stuck in a local minima
-  using Model = MLP<LossFn::MSE, INPUT_SIZE, 4, OUTPUT_SIZE>;
+  using Model = MLP<LossFn::MSE, INPUT_SIZE, 2, OUTPUT_SIZE>;
   f32 model_memory[Model::MEMORY_SIZE];
 
   std::random_device dev;
